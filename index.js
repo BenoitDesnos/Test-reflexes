@@ -25,7 +25,6 @@ function redDisplay() {
   awaitDisplay.innerHTML = "<p>Attention...</p>";
   awaitDisplay.style.zIndex = "2";
 }
-
 function Click1(e) {
   firstTimeStamp = e.timeStamp;
   randomGenerator = Math.random() * 3500 + 1500;
@@ -33,20 +32,16 @@ function Click1(e) {
   blueDisplay.style.zIndex = "-1";
   myTimeOut = setTimeout(greenDisplay, randomGenerator);
 }
-
 function Click2(e) {
   secondTimeStamp = e.timeStamp;
   calculResult = secondTimeStamp - firstTimeStamp - randomGenerator;
   resultRounded = Number(calculResult.toFixed(2));
-
   if (resultRounded > isTooEarly && attempt < 5) {
     instructionGenerator.innerHTML = `${resultRounded} ms`;
     blueDisplay.style.zIndex = "3";
     redDisplay();
     totalReflex += resultRounded;
-
     let averageReflex = totalReflex / 5;
-
     averageResultRounded = averageReflex.toFixed(2);
     attempt++;
     resultsArray.push(resultRounded);
@@ -88,8 +83,8 @@ function gameRestart(e) {
   });
   resultsAverage.textContent = ``;
   resultsArray = [];
-
   return;
 }
 blueDisplay.addEventListener("mousedown", Click1);
 awaitDisplay.addEventListener("mousedown", Click2);
+/* test */
